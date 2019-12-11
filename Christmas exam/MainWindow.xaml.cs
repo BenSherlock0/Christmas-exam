@@ -173,6 +173,9 @@ namespace Christmas_exam
             players.Add(f2);
             players.Add(f3);
             players.Add(f4);
+
+            sortlist();
+
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -187,6 +190,7 @@ namespace Christmas_exam
                 Player.space--;
 
                 txtblkSpace.Text = Player.space.ToString();
+                sortSelect();
             }
             else if(selectedactivity != null && Player.space == 0)
             {
@@ -206,7 +210,24 @@ namespace Christmas_exam
                 Player.space++;
 
                 txtblkSpace.Text = Player.space.ToString();
+                sortlist();
             }
+        }
+        public void sortlist()
+        {
+            List<Player> sorted = players.ToList();
+            sorted.Sort();
+            players = new ObservableCollection<Player>(sorted);
+            lbxPlayers.ItemsSource = null;
+            lbxPlayers.ItemsSource = players;
+        }
+        public void sortSelect()
+        {
+            List<Player> sorted = selectplayers.ToList();
+            sorted.Sort();
+            selectplayers = new ObservableCollection<Player>(sorted);
+            lbxSelect.ItemsSource = null;
+            lbxSelect.ItemsSource = selectplayers;
         }
     }
 }

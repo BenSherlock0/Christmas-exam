@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Christmas_exam
 {
     public enum Position {Goalkeeper = 0,Defenders = 1,Midfielder,Forward}
-    public class Player
+    public class Player : IComparable
     {
         public string FirstName { get; set; }
         public string Surname { get; set; }
@@ -29,6 +29,13 @@ namespace Christmas_exam
         public override string ToString()
         {
             return $"{FirstName} {Surname} ({Age}) {PreferredPosition}"; //To list boxes
+        }
+        public int CompareTo(object obj)
+        {
+            Player that = (Player)obj;
+            return this.PreferredPosition.CompareTo(that.PreferredPosition); //Sort by Position
+
+            //Couldn't finish sort by first name in time
         }
     }
 }
