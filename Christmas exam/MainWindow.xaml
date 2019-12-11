@@ -9,8 +9,8 @@
     <Grid>
         <ListBox HorizontalAlignment="Left" Height="264" Margin="53,110,0,0" VerticalAlignment="Top" Width="225"/>
         <ListBox HorizontalAlignment="Left" Height="264" Margin="525,110,0,0" VerticalAlignment="Top" Width="217"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="381,158,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="381,236,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Add&gt;&gt;" HorizontalAlignment="Left" Margin="381,158,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="&lt;&lt;Remove" HorizontalAlignment="Left" Margin="381,236,0,0" VerticalAlignment="Top" Width="75"/>
         <ComboBox HorizontalAlignment="Left" Margin="194,23,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Label" HorizontalAlignment="Left" Margin="108,23,0,0" VerticalAlignment="Top" Height="22"/>
         <Label Content="Label" HorizontalAlignment="Left" Margin="75,77,0,0" VerticalAlignment="Top"/>
