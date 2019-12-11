@@ -15,6 +15,8 @@ namespace Christmas_exam
         public DateTime DoB { get; set; }
         public int Age { get; set; }
 
+        public static int space = 11;
+
         public Player(string fname, string lname, Position position, DateTime date)
         {
             FirstName = fname;

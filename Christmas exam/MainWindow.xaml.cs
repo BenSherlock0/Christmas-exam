@@ -22,6 +22,7 @@ namespace Christmas_exam
     public partial class MainWindow : Window
     {
         ObservableCollection<Player> players = new ObservableCollection<Player>(); // All placed into left listbox
+        ObservableCollection<Player> selectplayers = new ObservableCollection<Player>(); // All placed into left listbox
 
         Random rng = new Random();
         static string[] Firstname = new string[9] {"Sophie","Grace","Harry","Micheal","Luke","Sean","Ava","Jack","Amelia"};
@@ -34,7 +35,9 @@ namespace Christmas_exam
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             lbxPlayers.ItemsSource = players;
+            lbxSelect.ItemsSource = selectplayers;
             CreateList();
+            cbxFormation.ItemsSource = new string[] { "4-4-2", "4-3-3", "4-5-1" };
         }
 
         public void CreateList()
@@ -170,6 +173,40 @@ namespace Christmas_exam
             players.Add(f2);
             players.Add(f3);
             players.Add(f4);
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Player selectedactivity = lbxPlayers.SelectedItem as Player;
+
+            if(selectedactivity != null && Player.space !=0)
+            {
+                players.Remove(selectedactivity);
+                selectplayers.Add(selectedactivity);
+
+                Player.space--;
+
+                txtblkSpace.Text = Player.space.ToString();
+            }
+            else if(selectedactivity != null && Player.space == 0)
+            {
+                MessageBox.Show("No spaces available");
+            }
+        }
+
+        private void BtnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            Player selectedactivity = lbxSelect.SelectedItem as Player;
+
+            if (selectedactivity != null)
+            {
+                selectplayers.Remove(selectedactivity);
+                players.Add(selectedactivity);
+
+                Player.space++;
+
+                txtblkSpace.Text = Player.space.ToString();
+            }
         }
     }
 }
